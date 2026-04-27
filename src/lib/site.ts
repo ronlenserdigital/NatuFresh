@@ -8,16 +8,25 @@ export const SITE = {
   yearsExperience: 12,
 } as const;
 
-/** Respects Vite `base` (GitHub Pages: /nutrue/) */
-function imageUrl(filename: string): string {
-  return `${import.meta.env.BASE_URL}images/${filename}`;
+/**
+ * Public folder URL, safe for any `import.meta.env.BASE_URL`
+ * (dev `/`, production `/nutrue/` for GitHub Pages).
+ */
+export function publicAsset(relativePath: string): string {
+  const p = relativePath.replace(/^\/+/, "");
+  const base = import.meta.env.BASE_URL || "/";
+  if (base === "/") {
+    return `/${p}`;
+  }
+  return base.endsWith("/") ? `${base}${p}` : `${base}/${p}`;
 }
 
 export const IMAGES = {
-  logo: imageUrl("natufresh-logo.png"),
-  hero: imageUrl("commercial-hallway.jpg"),
-  galleryMain: imageUrl("commercial-hallway.jpg"),
-  galleryA: imageUrl("office-cubicle.jpg"),
-  galleryB: imageUrl("long-hallway.jpg"),
-  businessCard: imageUrl("business-card.jpg"),
+  logo: publicAsset("images/natufresh-logo.png"),
+  logoFallback: publicAsset("images/natufresh-logo.svg"),
+  hero: publicAsset("images/commercial-hallway.png"),
+  galleryMain: publicAsset("images/commercial-hallway.png"),
+  galleryA: publicAsset("images/office-cubicle.png"),
+  galleryB: publicAsset("images/long-hallway.png"),
+  businessCard: publicAsset("images/natufresh-logo.png"),
 } as const;

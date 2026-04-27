@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
+import { IMAGES } from "../lib/site";
 
 type WorkImageProps = {
   src: string;
@@ -32,8 +33,7 @@ export function WorkImage({
   priority = false,
 }: WorkImageProps) {
   const [failed, setFailed] = useState(false);
-  const round =
-    rounded === "3xl" ? "rounded-3xl" : "rounded-2xl";
+  const round = rounded === "3xl" ? "rounded-3xl" : "rounded-2xl";
 
   if (failed) {
     return (
@@ -65,34 +65,80 @@ export function WorkImage({
   );
 }
 
+const LOGO_URLS = [IMAGES.logo, IMAGES.logoFallback] as const;
+
+function LogoTextFallback({ className = "" }: { className?: string }) {
+  return (
+    <span
+      className={`inline-flex items-baseline gap-0 font-serif text-xl font-bold tracking-tight sm:text-2xl ${className}`}
+    >
+      <span className="text-eco-green">Natu</span>
+      <span className="text-deep-blue">Fresh</span>
+    </span>
+  );
+}
+
+const shellClass = {
+  /** Fixed height row + max width: wide mark + icon scales reliably */
+  header:
+    "inline-flex max-w-[min(24rem,92vw)] shrink-0 items-center sm:max-w-[min(28rem,92vw)]",
+  footer: "inline-flex max-w-[min(20rem,90vw)] shrink-0 items-center",
+  about: "inline-flex w-full max-w-2xl shrink-0 items-center justify-center p-1",
+} as const;
+
+const imgClass = {
+  header:
+    "block h-9 w-auto max-w-full object-contain object-left sm:h-10 sm:max-h-11 md:h-12 md:max-h-14",
+  footer:
+    "block h-8 w-auto max-w-full object-contain object-left sm:h-9 sm:max-h-10",
+  about: "block h-auto w-full max-h-64 object-contain",
+} as const;
+
+type LogoVariant = keyof typeof shellClass;
+
+/**
+ * Tries PNG, then SVG, then text. Sizing uses a non-collapsing inline-flex shell
+ * so the image always gets a real box (avoids 0×0 in flex headers).
+ */
 export function LogoImage({
-  className = "h-10 w-auto",
-  width = 180,
-  height = 40,
+  className = "",
+  variant = "header",
+  alt = "NatuFresh",
+  loading = "eager",
 }: {
   className?: string;
-  width?: number;
-  height?: number;
+  variant?: LogoVariant;
+  alt?: string;
+  loading?: "eager" | "lazy";
 }) {
-  const [failed, setFailed] = useState(false);
-  if (failed) {
+  const [urlIndex, setUrlIndex] = useState(0);
+  const onError = useCallback(() => {
+    setUrlIndex((i) => i + 1);
+  }, []);
+
+  if (urlIndex >= LOGO_URLS.length) {
     return (
-      <span
-        className={`font-extrabold tracking-tight text-navy ${className} inline-flex items-center`}
-        style={{ fontFamily: "Manrope, Inter, sans-serif" }}
-      >
-        NatuFresh
-      </span>
+      <LogoTextFallback
+        className={(shellClass[variant] + " " + className).trim()}
+      />
     );
   }
+
   return (
-    <img
-      src={import.meta.env.BASE_URL + "images/natufresh-logo.png"}
-      alt="NatuFresh"
-      width={width}
-      height={height}
-      onError={() => setFailed(true)}
-      className={`w-auto object-contain object-left ${className}`}
-    />
+    <span
+      className={`${shellClass[variant]} bg-transparent [background:transparent] ${className}`.trim()}
+    >
+      <img
+        src={LOGO_URLS[urlIndex]}
+        alt={alt}
+        loading={loading}
+        decoding="async"
+        fetchPriority={variant === "header" ? "high" : "auto"}
+        onError={onError}
+        className={`${imgClass[variant]} bg-transparent [background:transparent] [box-shadow:none]`}
+        width={400}
+        height={90}
+      />
+    </span>
   );
 }

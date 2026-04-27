@@ -1,23 +1,26 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { LogoImage } from "./WorkImage";
+import { LanguageToggle } from "./LanguageToggle";
 import { SITE } from "../lib/site";
-
-const nav = [
-  { to: "/", label: "Home" },
-  { to: "/services", label: "Services" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
-];
-
-const linkClass = ({ isActive }: { isActive: boolean }) =>
-  `text-sm font-semibold transition-colors ${
-    isActive ? "text-deep-blue" : "text-navy/70 hover:text-navy"
-  }`;
+import { useLocale } from "../i18n/LocaleProvider";
 
 export function Header() {
+  const { t } = useLocale();
   const [open, setOpen] = useState(false);
   const [solid, setSolid] = useState(false);
+
+  const nav = [
+    { to: "/", label: t("nav.home"), end: true },
+    { to: "/services", label: t("nav.services"), end: false },
+    { to: "/about", label: t("nav.about"), end: false },
+    { to: "/contact", label: t("nav.contact"), end: false },
+  ];
+
+  const linkClass = ({ isActive }: { isActive: boolean }) =>
+    `text-sm font-semibold transition-colors ${
+      isActive ? "text-deep-blue" : "text-navy/70 hover:text-navy"
+    }`;
 
   useEffect(() => {
     const onScroll = () => setSolid(window.scrollY > 8);
@@ -41,27 +44,32 @@ export function Header() {
           : "border-navy/5 bg-white/90 backdrop-blur-sm"
       }`}
     >
-      <div className="mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex min-h-[4.75rem] items-center max-w-6xl justify-between gap-3 px-4 sm:px-6 lg:px-8">
         <Link
           to="/"
-          className="flex shrink-0 items-center gap-2.5"
+          className="flex shrink-0 items-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-blue"
           onClick={() => setOpen(false)}
         >
-          <LogoImage className="h-9 sm:h-10" height={40} width={200} />
+          <LogoImage variant="header" />
         </Link>
 
-        <div className="hidden items-center gap-8 lg:flex">
+        <div className="hidden items-center gap-5 lg:flex xl:gap-7">
           <nav aria-label="Main">
-            <ul className="flex items-center gap-7">
+            <ul className="flex items-center gap-5 xl:gap-7">
               {nav.map((item) => (
                 <li key={item.to}>
-                  <NavLink to={item.to} className={linkClass} end={item.to === "/"}>
+                  <NavLink
+                    to={item.to}
+                    className={linkClass}
+                    end={item.end}
+                  >
                     {item.label}
                   </NavLink>
                 </li>
               ))}
             </ul>
           </nav>
+          <LanguageToggle />
           <a
             href={`tel:+1${SITE.phoneTel}`}
             className="text-sm font-semibold text-navy tabular-nums"
@@ -70,16 +78,17 @@ export function Header() {
           </a>
           <Link
             to="/contact"
-            className="inline-flex h-10 items-center justify-center rounded-lg bg-navy px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-deep-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-blue"
+            className="inline-flex h-10 items-center justify-center rounded-lg bg-eco-green px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-deep-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-blue"
           >
-            Request Quote
+            {t("nav.requestQuote")}
           </Link>
         </div>
 
-        <div className="flex items-center gap-3 lg:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
+          <LanguageToggle />
           <a
             href={`tel:+1${SITE.phoneTel}`}
-            className="text-sm font-bold text-navy tabular-nums"
+            className="text-xs font-bold text-navy tabular-nums sm:text-sm"
           >
             {SITE.phoneDisplay}
           </a>
@@ -89,7 +98,7 @@ export function Header() {
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
           >
             {open ? (
               <svg
@@ -120,7 +129,7 @@ export function Header() {
 
       <div
         id="mobile-nav"
-        className={`fixed left-0 right-0 top-[4.25rem] z-[99] flex h-[calc(100dvh-4.25rem)] flex-col bg-warm-white transition lg:hidden ${
+        className={`fixed left-0 right-0 top-[4.75rem] z-[99] flex h-[calc(100dvh-4.75rem)] flex-col bg-warm-white transition lg:hidden ${
           open
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
@@ -136,7 +145,7 @@ export function Header() {
               <li key={item.to}>
                 <NavLink
                   to={item.to}
-                  end={item.to === "/"}
+                  end={item.end}
                   onClick={() => setOpen(false)}
                   className="block rounded-lg px-3 py-3 text-lg font-semibold text-navy hover:bg-light-gray"
                 >
@@ -149,9 +158,9 @@ export function Header() {
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="flex h-12 w-full items-center justify-center rounded-lg bg-navy text-base font-semibold text-white"
+              className="flex h-12 w-full items-center justify-center rounded-lg bg-eco-green text-base font-semibold text-white hover:bg-deep-blue"
             >
-              Request Quote
+              {t("nav.requestQuote")}
             </Link>
           </div>
         </nav>
