@@ -1,9 +1,12 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// GitHub Pages project URL: https://<user>.github.io/<repo>/
-// Repository name: nutrue
-export default defineConfig({
+// Production (build + preview): /nutrue/ for GitHub Pages
+// Development: / so http://localhost:5173/ works (no /nutrue/ subpath)
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
-  base: "/nutrue/",
-});
+  base: mode === "production" ? "/nutrue/" : "/",
+  server: {
+    open: true,
+  },
+}));

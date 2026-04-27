@@ -15,13 +15,21 @@ The app is built with Vite’s `base: "/nutrue/"` so assets work under `https://
 
 `npm run build` also writes `dist/404.html` (copy of `index.html`) so direct loads or refresh on routes like `/nutrue/services` work on GitHub Pages.
 
-## Local dev (with the same base as production)
+## Local dev
 
-Vite is configured for the `/nutrue/` path. Open:
+```bash
+npm run dev
+```
 
-`http://localhost:5173/nutrue/`
+Open **http://localhost:5173/** (Vite is set to open the browser automatically). Development uses `base: "/"` so you don’t need the `/nutrue/` path locally.
 
-(Plain `/` will not load the app correctly.)
+**Preview the production build** (after `npm run build`):
+
+```bash
+npm run preview
+```
+
+Open **http://localhost:4173/nutrue/** (production build still uses the GitHub Pages base path).
 
 ## Commands
 
@@ -30,7 +38,6 @@ npm install
 npm run dev
 npm run build
 npm run preview
-# Preview production build at http://localhost:4173/nutrue/
 ```
 
 ## Go-live checklist
