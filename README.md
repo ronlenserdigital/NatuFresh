@@ -22,6 +22,24 @@ npm run preview
 
 3. **Deploy** — build (`npm run build`) and host the `dist` folder (Netlify, Vercel, or any static host). Configure SPA rewrites so client-side routes work (`/services`, `/about`, `/contact`).
 
+## Push to GitHub (new repo)
+
+From this folder, after [GitHub CLI](https://cli.github.com/) is installed and you are logged in:
+
+```bash
+gh auth login
+gh repo create natufresh-website --public --source=. --remote=origin --push
+```
+
+This creates a new public repo named `natufresh-website` under your account, sets `origin`, and pushes the `main` branch. To use a different name, change `natufresh-website` in the command.
+
+**Git only:** create an empty repo on GitHub, then:
+
+```bash
+git remote add origin https://github.com/YOUR_USERNAME/natufresh-website.git
+git push -u origin main
+```
+
 ## License
 
 You own the site content. Modify as needed for NatuFresh LLC.
