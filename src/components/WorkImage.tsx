@@ -87,7 +87,7 @@ export function LogoImage({
   }
   return (
     <img
-      src="/images/natufresh-logo.png"
+      src={import.meta.env.BASE_URL + "images/natufresh-logo.png"}
       alt="NatuFresh"
       width={width}
       height={height}

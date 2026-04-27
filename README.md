@@ -2,7 +2,26 @@
 
 Production-ready, responsive marketing site (Vite, React, TypeScript, Tailwind CSS) for **NatuFresh** — a commercial cleaning company (B2B / facilities; no residential positioning).
 
-**Repository:** [github.com/ronlenserdigital/nutrue](https://github.com/ronlenserdigital/nutrue)
+**Repository:** [github.com/ronlenserdigital/nutrue](https://github.com/ronlenserdigital/nutrue)  
+**Live site (after Pages is enabled):** [ronlenserdigital.github.io/nutrue](https://ronlenserdigital.github.io/nutrue/)
+
+## GitHub Pages
+
+The app is built with Vite’s `base: "/nutrue/"` so assets work under `https://ronlenserdigital.github.io/nutrue/`. A GitHub Actions workflow (`.github/workflows/pages.yml`) deploys the `dist` folder on every push to `main`. After the first run completes:
+
+1. In the repo: **Settings → Pages**.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions** (if it isn’t already).
+3. Open the **Actions** tab and confirm the “Deploy to GitHub Pages” workflow is green.
+
+`npm run build` also writes `dist/404.html` (copy of `index.html`) so direct loads or refresh on routes like `/nutrue/services` work on GitHub Pages.
+
+## Local dev (with the same base as production)
+
+Vite is configured for the `/nutrue/` path. Open:
+
+`http://localhost:5173/nutrue/`
+
+(Plain `/` will not load the app correctly.)
 
 ## Commands
 
@@ -11,6 +30,7 @@ npm install
 npm run dev
 npm run build
 npm run preview
+# Preview production build at http://localhost:4173/nutrue/
 ```
 
 ## Go-live checklist

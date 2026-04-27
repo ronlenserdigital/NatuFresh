@@ -8,11 +8,16 @@ export const SITE = {
   yearsExperience: 12,
 } as const;
 
+/** Respects Vite `base` (GitHub Pages: /nutrue/) */
+function imageUrl(filename: string): string {
+  return `${import.meta.env.BASE_URL}images/${filename}`;
+}
+
 export const IMAGES = {
-  logo: "/images/natufresh-logo.png",
-  hero: "/images/commercial-hallway.jpg",
-  galleryMain: "/images/commercial-hallway.jpg",
-  galleryA: "/images/office-cubicle.jpg",
-  galleryB: "/images/long-hallway.jpg",
-  businessCard: "/images/business-card.jpg",
+  logo: imageUrl("natufresh-logo.png"),
+  hero: imageUrl("commercial-hallway.jpg"),
+  galleryMain: imageUrl("commercial-hallway.jpg"),
+  galleryA: imageUrl("office-cubicle.jpg"),
+  galleryB: imageUrl("long-hallway.jpg"),
+  businessCard: imageUrl("business-card.jpg"),
 } as const;
