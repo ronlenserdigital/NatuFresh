@@ -2,6 +2,8 @@
 
 Production-ready, responsive marketing site (Vite, React, TypeScript, Tailwind CSS) for **NatuFresh** — a commercial cleaning company (B2B / facilities; no residential positioning).
 
+**Repository:** [github.com/ronlenserdigital/nutrue](https://github.com/ronlenserdigital/nutrue)
+
 ## Commands
 
 ```bash
