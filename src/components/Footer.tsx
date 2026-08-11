@@ -19,6 +19,10 @@ export function Footer() {
             </Link>
             <p className="text-sm font-medium text-navy/75">{SITE.tagline}</p>
             <p className="mt-2 text-sm text-navy/60">{t("footer.companyBlurb")}</p>
+            <span className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-eco-green/30 bg-soft-green/50 px-3 py-1 text-xs font-bold text-eco-green">
+              <span className="leading-none" aria-hidden>✓</span>
+              {t("footer.licensedInsured")}
+            </span>
           </div>
           <div>
             <h2 className="font-sans text-xs font-bold uppercase tracking-widest text-navy/50">
