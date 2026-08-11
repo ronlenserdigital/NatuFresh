@@ -90,7 +90,7 @@ const imgClass = {
   header:
     "block h-[2.475rem] w-auto max-w-full object-contain object-left sm:h-11 sm:max-h-[3.025rem] md:h-[3.3rem] md:max-h-[3.85rem]",
   footer:
-    "block h-12 w-auto max-w-full object-contain object-left sm:h-14 sm:max-h-16",
+    "block h-16 w-auto max-w-full object-contain object-left sm:h-20 sm:max-h-24",
   about: "block h-auto w-full max-h-64 object-contain",
 } as const;
 
