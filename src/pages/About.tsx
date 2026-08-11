@@ -1,6 +1,6 @@
 import { Seo } from "../components/Seo";
 import { LogoImage } from "../components/WorkImage";
-import { SITE } from "../lib/site";
+import { IMAGES, SITE } from "../lib/site";
 import { Link } from "react-router-dom";
 import { useLocale } from "../i18n/LocaleProvider";
 
@@ -53,6 +53,12 @@ export function About() {
                   loading="lazy"
                 />
               </div>
+              <div className="mx-auto max-w-sm">
+                <span className="inline-flex items-center gap-2 rounded-full border border-eco-green/30 bg-soft-green/50 px-4 py-1.5 text-sm font-bold text-eco-green">
+                  <span className="text-base leading-none" aria-hidden>✓</span>
+                  {t("aboutPage.licensedBadge")}
+                </span>
+              </div>
             </div>
           </div>
           <div className="space-y-12 lg:col-span-7">
@@ -66,6 +72,31 @@ export function About() {
                 </p>
               </section>
             ))}
+            <section className="rounded-2xl border border-navy/8 bg-white p-6 shadow-card sm:p-8">
+              <h2 className="text-xl font-extrabold text-navy sm:text-2xl">
+                {t("aboutPage.credH2")}
+              </h2>
+              <p className="mt-2 leading-relaxed text-navy/75">
+                {t("aboutPage.credBody", { owner: SITE.owner })}
+              </p>
+              <p className="mt-6 text-xs font-bold uppercase tracking-widest text-navy/45">
+                {t("aboutPage.credTrustedWith")}
+              </p>
+              <div className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-6">
+                <img
+                  src={IMAGES.pwhi}
+                  alt={t("aboutPage.credPwhiAlt")}
+                  loading="lazy"
+                  className="h-16 w-auto object-contain"
+                />
+                <img
+                  src={IMAGES.dataIntegration}
+                  alt={t("aboutPage.credDataAlt")}
+                  loading="lazy"
+                  className="h-12 w-auto object-contain"
+                />
+              </div>
+            </section>
             <div className="rounded-2xl border border-navy/8 bg-soft-blue/40 p-6 sm:p-8">
               <h2 className="text-lg font-extrabold text-navy">
                 {t("aboutPage.boxH2")}

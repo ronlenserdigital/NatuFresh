@@ -103,6 +103,45 @@ export function Home() {
         </div>
       </div>
 
+      <section className="border-b border-navy/8 bg-white py-14 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-eco-green">
+                {t("home.credEyebrow")}
+              </p>
+              <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-navy sm:text-3xl">
+                {t("home.credH2")}
+              </h2>
+              <p className="mt-3 text-navy/70">{t("home.credLead")}</p>
+              <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-eco-green/30 bg-soft-green/50 px-4 py-1.5 text-sm font-bold text-eco-green">
+                <span className="text-base leading-none" aria-hidden>✓</span>
+                {t("home.credLicensed")}
+              </span>
+            </div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-navy/45">
+                {t("home.credTrustedWith")}
+              </p>
+              <div className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-6">
+                <img
+                  src={IMAGES.pwhi}
+                  alt={t("home.credPwhiAlt")}
+                  loading="lazy"
+                  className="h-16 w-auto object-contain"
+                />
+                <img
+                  src={IMAGES.dataIntegration}
+                  alt={t("home.credDataAlt")}
+                  loading="lazy"
+                  className="h-12 w-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-warm-white py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
