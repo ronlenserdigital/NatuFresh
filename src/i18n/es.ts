@@ -27,6 +27,7 @@ export const es: Messages = {
     getQuoteText:
       "Cuéntenos sobre su instalación y le contactaremos con un plan de limpieza comercial.",
     getQuoteCta: "Solicitar cotización comercial",
+    licensedInsured: "Con licencia y asegurada",
     copyright:
       "© {year} NatuFresh LLC. Servicios de limpieza comercial. Todos los derechos reservados.",
   },
@@ -44,11 +45,11 @@ export const es: Messages = {
       "NatuFresh ofrece limpieza comercial profesional con {yearsExperience} años de experiencia, ayudando a oficinas, instalaciones y entornos empresariales a permanecer limpios, frescos y listos para trabajar.",
     ctaQuote: "Solicitar cotización gratuita",
     ctaCall: "Llamar {phone}",
-    trust1: "12 años de experiencia",
-    trust2: "Solo limpieza comercial",
-    trust3: "Enfoque de limpieza ecológica",
+    trust1: "Más de 12 años de experiencia",
+    trust2: "Con licencia y asegurada",
+    trust3: "Solo limpieza comercial",
     trust4: "Servicio liderado por el dueño",
-    stat1: "12 años de experiencia",
+    stat1: "Más de 12 años de experiencia",
     stat2: "Espacios comerciales",
     stat3: "Limpieza de oficinas y conserjería",
     stat4: "Horarios de limpieza flexibles",
@@ -72,10 +73,18 @@ export const es: Messages = {
     cap3: "Pisos limpios y áreas comunes",
     floatCard:
       "Oficinas limpias. Espacios de trabajo más saludables. Servicio confiable.",
+    credEyebrow: "EXPERIENCIA COMPROBADA",
+    credH2: "Respaldada por más de 12 años de limpieza profesional",
+    credLead:
+      "La dueña de NatuFresh aporta más de 12 años de experiencia práctica en limpieza — incluyendo trabajo comercial con Prince William Home Improvement y Data Integration, Inc. NatuFresh LLC cuenta con licencia y seguro completos.",
+    credLicensed: "Con licencia y asegurada",
+    credTrustedWith: "Experiencia con",
+    credPwhiAlt: "Prince William Home Improvement",
+    credDataAlt: "Data Integration, Inc.",
     whyH2: "Por qué las empresas eligen a NatuFresh",
     whyLead:
       "Cuando necesita una empresa de limpieza comercial que cumpla, preste atención y mantenga un entorno presentable, quiere un equipo que conoce el trabajo comercial y lo respalda con experiencia.",
-    why1: "12 años de experiencia en limpieza",
+    why1: "Más de 12 años de experiencia en limpieza",
     why2: "Servicio enfocado en el sector comercial",
     why3: "Horarios flexibles",
     why4: "Limpieza con atención al detalle",
@@ -134,6 +143,13 @@ export const es: Messages = {
     presLead:
       "Esta es nuestra marca: presentación cuidada y atención al detalle en cada sitio de trabajo.",
     logoAlt: "Logotipo NatuFresh — limpieza ecológica para una vida saludable",
+    licensedBadge: "Con licencia y asegurada",
+    credH2: "Experiencia comercial de confianza",
+    credBody:
+      "Antes de fundar NatuFresh, {owner} dedicó más de 12 años a brindar limpieza profesional para organizaciones locales establecidas — incluyendo Prince William Home Improvement y Data Integration, Inc. Ese historial comercial es la base sobre la que se construye NatuFresh. NatuFresh LLC cuenta con licencia y seguro completos.",
+    credTrustedWith: "Experiencia con",
+    credPwhiAlt: "Prince William Home Improvement",
+    credDataAlt: "Data Integration, Inc.",
     sec1t: "Servicio liderado por el dueño",
     sec1b:
       "Trabaja con un negocio que toma el servicio en serio. Cuando importan las expectativas, la responsabilidad del dueño ayuda a asegurar seguimiento, comunicación clara y un estándar que no se pierde en traspasos — especialmente en entornos comerciales donde la calidad se nota en los detalles.",

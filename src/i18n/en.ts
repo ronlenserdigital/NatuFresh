@@ -26,6 +26,7 @@ export const en = {
     getQuoteText:
       "Tell us about your facility and we’ll follow up with a commercial cleaning plan.",
     getQuoteCta: "Request Commercial Quote",
+    licensedInsured: "Licensed & Insured",
     copyright: "© {year} NatuFresh LLC. Commercial cleaning services. All rights reserved.",
   },
   home: {
@@ -42,11 +43,11 @@ export const en = {
       "NatuFresh provides professional commercial cleaning backed by {yearsExperience} years of experience, helping offices, facilities, and business environments stay clean, fresh, and ready for work.",
     ctaQuote: "Request a Free Quote",
     ctaCall: "Call {phone}",
-    trust1: "12 Years of Experience",
-    trust2: "Commercial Cleaning Only",
-    trust3: "Green Cleaning Approach",
+    trust1: "12+ Years of Experience",
+    trust2: "Licensed & Insured",
+    trust3: "Commercial Cleaning Only",
     trust4: "Owner-Led Service",
-    stat1: "12 Years Experience",
+    stat1: "12+ Years Experience",
     stat2: "Commercial Spaces",
     stat3: "Office & Janitorial Cleaning",
     stat4: "Flexible Cleaning Schedules",
@@ -70,10 +71,18 @@ export const en = {
     cap3: "Clean floors and common areas",
     floatCard:
       "Clean offices. Healthier workspaces. Reliable service.",
+    credEyebrow: "PROVEN EXPERIENCE",
+    credH2: "Backed by 12+ Years of Professional Cleaning",
+    credLead:
+      "NatuFresh's owner brings over 12 years of hands-on cleaning experience — including commercial work with Prince William Home Improvement and Data Integration, Inc. NatuFresh LLC is fully licensed and insured.",
+    credLicensed: "Licensed & Insured",
+    credTrustedWith: "Experience with",
+    credPwhiAlt: "Prince William Home Improvement",
+    credDataAlt: "Data Integration, Inc.",
     whyH2: "Why Businesses Choose NatuFresh",
     whyLead:
       "When you need a commercial cleaning company that shows up, pays attention, and keeps your business environment presentable, you want a team that knows commercial work — and backs it with experience.",
-    why1: "12 years of cleaning experience",
+    why1: "12+ years of cleaning experience",
     why2: "Commercial-focused service",
     why3: "Flexible scheduling",
     why4: "Detail-oriented cleaning",
@@ -132,6 +141,13 @@ export const en = {
     presLead:
       "This is our brand: clean presentation and attention to detail on every job site.",
     logoAlt: "NatuFresh logo — green cleaning for healthy living",
+    licensedBadge: "Licensed & Insured",
+    credH2: "Trusted Commercial Experience",
+    credBody:
+      "Before founding NatuFresh, {owner} spent 12+ years providing professional cleaning for established local organizations — including Prince William Home Improvement and Data Integration, Inc. That commercial track record is the foundation NatuFresh is built on. NatuFresh LLC is fully licensed and insured.",
+    credTrustedWith: "Experience with",
+    credPwhiAlt: "Prince William Home Improvement",
+    credDataAlt: "Data Integration, Inc.",
     sec1t: "Owner-Led Service",
     sec1b:
       "You work with a business that takes service personally. When expectations matter, owner-led accountability helps ensure follow-through, clear communication, and a standard that doesn’t get lost in handoffs — especially in commercial settings where quality shows up in the details.",
