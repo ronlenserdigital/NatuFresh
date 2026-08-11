@@ -82,6 +82,8 @@ const shellClass = {
   /** Fixed height row + max width: wide mark + icon scales reliably */
   header:
     "inline-flex max-w-[min(24rem,92vw)] shrink-0 items-center sm:max-w-[min(28rem,92vw)]",
+  headerHome:
+    "inline-flex max-w-[min(32rem,92vw)] shrink-0 items-center justify-center",
   footer: "inline-flex max-w-[min(20rem,90vw)] shrink-0 items-center",
   about: "inline-flex w-full max-w-2xl shrink-0 items-center justify-center p-1",
 } as const;
@@ -89,6 +91,8 @@ const shellClass = {
 const imgClass = {
   header:
     "block h-[2.475rem] w-auto max-w-full object-contain object-left sm:h-11 sm:max-h-[3.025rem] md:h-[3.3rem] md:max-h-[3.85rem]",
+  headerHome:
+    "block h-16 w-auto max-w-full object-contain sm:h-20 md:h-24",
   footer:
     "block h-16 w-auto max-w-full object-contain object-left sm:h-20 sm:max-h-24",
   about: "block h-auto w-full max-h-64 object-contain",

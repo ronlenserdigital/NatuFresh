@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { LogoImage } from "./WorkImage";
 import { LanguageToggle } from "./LanguageToggle";
 import { SITE } from "../lib/site";
@@ -7,6 +7,8 @@ import { useLocale } from "../i18n/LocaleProvider";
 
 export function Header() {
   const { t } = useLocale();
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
   const [open, setOpen] = useState(false);
   const [solid, setSolid] = useState(false);
 
@@ -36,6 +38,82 @@ export function Header() {
     };
   }, [open]);
 
+  const navLinks = (
+    <nav aria-label="Main">
+      <ul className="flex items-center gap-5 xl:gap-7">
+        {nav.map((item) => (
+          <li key={item.to}>
+            <NavLink to={item.to} className={linkClass} end={item.end}>
+              {item.label}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+
+  const desktopActions = (
+    <>
+      <LanguageToggle />
+      <a
+        href={`tel:+1${SITE.phoneTel}`}
+        className="text-sm font-semibold text-navy tabular-nums"
+      >
+        {SITE.phoneDisplay}
+      </a>
+      <Link
+        to="/contact"
+        className="inline-flex h-10 items-center justify-center rounded-lg bg-eco-green px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-deep-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-blue"
+      >
+        {t("nav.requestQuote")}
+      </Link>
+    </>
+  );
+
+  const mobileControls = (
+    <div className="flex items-center gap-2 lg:hidden">
+      <LanguageToggle />
+      <a
+        href={`tel:+1${SITE.phoneTel}`}
+        className="text-xs font-bold text-navy tabular-nums sm:text-sm"
+      >
+        {SITE.phoneDisplay}
+      </a>
+      <button
+        type="button"
+        className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-navy/10 bg-white text-navy shadow-sm"
+        aria-expanded={open}
+        aria-controls="mobile-nav"
+        onClick={() => setOpen((v) => !v)}
+        aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
+      >
+        {open ? (
+          <svg
+            className="h-5 w-5 text-navy"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            aria-hidden
+          >
+            <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+          </svg>
+        ) : (
+          <svg
+            className="h-5 w-5 text-navy"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            aria-hidden
+          >
+            <path d="M3 6h18M3 12h18M3 18h18" strokeLinecap="round" />
+          </svg>
+        )}
+      </button>
+    </div>
+  );
+
   return (
     <header
       className={`sticky top-0 z-[100] border-b transition-shadow duration-200 ${
@@ -44,88 +122,53 @@ export function Header() {
           : "border-navy/5 bg-white/90 backdrop-blur-sm"
       }`}
     >
-      <div className="mx-auto flex min-h-[4.75rem] items-center max-w-6xl justify-between gap-3 px-4 sm:px-6 lg:px-8">
-        <Link
-          to="/"
-          className="flex shrink-0 items-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-blue"
-          onClick={() => setOpen(false)}
-        >
-          <LogoImage variant="header" />
-        </Link>
+      {isHome ? (
+        <>
+          {/* Mobile: standard bar (logo left, controls right) */}
+          <div className="mx-auto flex min-h-[4.75rem] max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 lg:hidden">
+            <Link
+              to="/"
+              className="flex shrink-0 items-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-blue"
+              onClick={() => setOpen(false)}
+            >
+              <LogoImage variant="header" />
+            </Link>
+            {mobileControls}
+          </div>
 
-        <div className="hidden items-center gap-5 lg:flex xl:gap-7">
-          <nav aria-label="Main">
-            <ul className="flex items-center gap-5 xl:gap-7">
-              {nav.map((item) => (
-                <li key={item.to}>
-                  <NavLink
-                    to={item.to}
-                    className={linkClass}
-                    end={item.end}
-                  >
-                    {item.label}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <LanguageToggle />
-          <a
-            href={`tel:+1${SITE.phoneTel}`}
-            className="text-sm font-semibold text-navy tabular-nums"
-          >
-            {SITE.phoneDisplay}
-          </a>
+          {/* Desktop: big centered logo with nav row below */}
+          <div className="mx-auto hidden max-w-6xl flex-col items-center gap-4 px-4 py-4 sm:px-6 lg:flex">
+            <Link
+              to="/"
+              className="flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-blue"
+              onClick={() => setOpen(false)}
+            >
+              <LogoImage variant="headerHome" />
+            </Link>
+            <div className="flex items-center gap-6 xl:gap-8">
+              {navLinks}
+              {desktopActions}
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className="mx-auto flex min-h-[4.75rem] items-center max-w-6xl justify-between gap-3 px-4 sm:px-6 lg:px-8">
           <Link
-            to="/contact"
-            className="inline-flex h-10 items-center justify-center rounded-lg bg-eco-green px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-deep-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-blue"
+            to="/"
+            className="flex shrink-0 items-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-blue"
+            onClick={() => setOpen(false)}
           >
-            {t("nav.requestQuote")}
+            <LogoImage variant="header" />
           </Link>
-        </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
-          <LanguageToggle />
-          <a
-            href={`tel:+1${SITE.phoneTel}`}
-            className="text-xs font-bold text-navy tabular-nums sm:text-sm"
-          >
-            {SITE.phoneDisplay}
-          </a>
-          <button
-            type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-navy/10 bg-white text-navy shadow-sm"
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
-          >
-            {open ? (
-              <svg
-                className="h-5 w-5 text-navy"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                aria-hidden
-              >
-                <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
-              </svg>
-            ) : (
-              <svg
-                className="h-5 w-5 text-navy"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                aria-hidden
-              >
-                <path d="M3 6h18M3 12h18M3 18h18" strokeLinecap="round" />
-              </svg>
-            )}
-          </button>
+          <div className="hidden items-center gap-5 lg:flex xl:gap-7">
+            {navLinks}
+            {desktopActions}
+          </div>
+
+          {mobileControls}
         </div>
-      </div>
+      )}
 
       <div
         id="mobile-nav"
