@@ -29,4 +29,6 @@ export const IMAGES = {
   galleryA: publicAsset("images/office-cubicle.png"),
   galleryB: publicAsset("images/long-hallway.png"),
   businessCard: publicAsset("images/natufresh-logo.png"),
+  pwhi: publicAsset("images/pwhi-logo.png"),
+  dataIntegration: publicAsset("images/data-integration-logo.png"),
 } as const;
