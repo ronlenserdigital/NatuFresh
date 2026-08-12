@@ -7,6 +7,7 @@ export const en = {
     about: "About",
     contact: "Contact",
     requestQuote: "Request Quote",
+    callNow: "Call Now",
     openMenu: "Open menu",
     closeMenu: "Close menu",
   },

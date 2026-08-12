@@ -8,6 +8,7 @@ export const es: Messages = {
     about: "Nosotros",
     contact: "Contacto",
     requestQuote: "Solicitar cotización",
+    callNow: "Llamar ahora",
     openMenu: "Abrir menú",
     closeMenu: "Cerrar menú",
   },
