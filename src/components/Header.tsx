@@ -1,14 +1,25 @@
 import { useState, useEffect } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { LogoImage } from "./WorkImage";
 import { LanguageToggle } from "./LanguageToggle";
 import { SITE } from "../lib/site";
 import { useLocale } from "../i18n/LocaleProvider";
 
+function PhoneIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden
+    >
+      <path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25c1.1.37 2.3.57 3.5.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.2.2 2.4.57 3.5a1 1 0 0 1-.25 1l-2.22 2.3Z" />
+    </svg>
+  );
+}
+
 export function Header() {
   const { t } = useLocale();
-  const { pathname } = useLocation();
-  const isHome = pathname === "/";
   const [open, setOpen] = useState(false);
   const [solid, setSolid] = useState(false);
 
@@ -57,9 +68,10 @@ export function Header() {
       <LanguageToggle />
       <a
         href={`tel:+1${SITE.phoneTel}`}
-        className="text-sm font-semibold text-navy tabular-nums"
+        className="inline-flex h-10 items-center gap-2 rounded-lg border border-navy/15 bg-white px-4 text-sm font-semibold text-navy transition hover:border-deep-blue/40 hover:bg-soft-blue/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-blue"
       >
-        {SITE.phoneDisplay}
+        <PhoneIcon />
+        {t("nav.callNow")}
       </a>
       <Link
         to="/contact"
@@ -75,9 +87,10 @@ export function Header() {
       <LanguageToggle />
       <a
         href={`tel:+1${SITE.phoneTel}`}
-        className="text-xs font-bold text-navy tabular-nums sm:text-sm"
+        aria-label={t("nav.callNow")}
+        className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-eco-green text-white shadow-sm transition hover:bg-deep-blue"
       >
-        {SITE.phoneDisplay}
+        <PhoneIcon className="h-5 w-5" />
       </a>
       <button
         type="button"
@@ -122,53 +135,32 @@ export function Header() {
           : "border-navy/5 bg-white/90 backdrop-blur-sm"
       }`}
     >
-      {isHome ? (
-        <>
-          {/* Mobile: standard bar (logo left, controls right) */}
-          <div className="mx-auto flex min-h-[4.75rem] max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 lg:hidden">
-            <Link
-              to="/"
-              className="flex shrink-0 items-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-blue"
-              onClick={() => setOpen(false)}
-            >
-              <LogoImage variant="header" />
-            </Link>
-            {mobileControls}
-          </div>
+      {/* Mobile: standard bar (logo left, controls right) — same on every page */}
+      <div className="mx-auto flex min-h-[4.75rem] max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 lg:hidden">
+        <Link
+          to="/"
+          className="flex shrink-0 items-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-blue"
+          onClick={() => setOpen(false)}
+        >
+          <LogoImage variant="header" />
+        </Link>
+        {mobileControls}
+      </div>
 
-          {/* Desktop: big centered logo with nav row below */}
-          <div className="mx-auto hidden max-w-6xl flex-col items-center gap-4 px-4 py-4 sm:px-6 lg:flex">
-            <Link
-              to="/"
-              className="flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-blue"
-              onClick={() => setOpen(false)}
-            >
-              <LogoImage variant="headerHome" />
-            </Link>
-            <div className="flex items-center gap-6 xl:gap-8">
-              {navLinks}
-              {desktopActions}
-            </div>
-          </div>
-        </>
-      ) : (
-        <div className="mx-auto flex min-h-[4.75rem] items-center max-w-6xl justify-between gap-3 px-4 sm:px-6 lg:px-8">
-          <Link
-            to="/"
-            className="flex shrink-0 items-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-blue"
-            onClick={() => setOpen(false)}
-          >
-            <LogoImage variant="header" />
-          </Link>
-
-          <div className="hidden items-center gap-5 lg:flex xl:gap-7">
-            {navLinks}
-            {desktopActions}
-          </div>
-
-          {mobileControls}
+      {/* Desktop: big centered logo with nav row below — same on every page */}
+      <div className="mx-auto hidden max-w-6xl flex-col items-center gap-4 px-4 py-4 sm:px-6 lg:flex">
+        <Link
+          to="/"
+          className="flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-deep-blue"
+          onClick={() => setOpen(false)}
+        >
+          <LogoImage variant="headerHome" />
+        </Link>
+        <div className="flex items-center gap-6 xl:gap-8">
+          {navLinks}
+          {desktopActions}
         </div>
-      )}
+      </div>
 
       <div
         id="mobile-nav"
@@ -197,7 +189,15 @@ export function Header() {
               </li>
             ))}
           </ul>
-          <div className="mt-auto border-t border-navy/8 pt-6">
+          <div className="mt-auto space-y-3 border-t border-navy/8 pt-6">
+            <a
+              href={`tel:+1${SITE.phoneTel}`}
+              onClick={() => setOpen(false)}
+              className="flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-navy/15 bg-white text-base font-semibold text-navy hover:bg-soft-blue/50"
+            >
+              <PhoneIcon className="h-5 w-5" />
+              {t("nav.callNow")}
+            </a>
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
