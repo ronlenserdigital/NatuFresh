@@ -1,4 +1,4 @@
-/** Spanish copy — aligned with `en` structure. */
+/** Spanish copy, aligned with `en` structure. */
 import type { Messages } from "./en";
 
 export const es: Messages = {
@@ -53,9 +53,9 @@ export const es: Messages = {
     stat2: "Espacios comerciales",
     stat3: "Limpieza de oficinas y conserjería",
     stat4: "Horarios de limpieza flexibles",
-    builtH2: "Diseñado para espacios comerciales",
+    builtH2: "Limpieza que se adapta a su negocio",
     builtLead:
-      "NatuFresh ayuda a oficinas, edificios comerciales y entornos empresariales a mantener una apariencia limpia y profesional sin interrumpir las operaciones diarias.",
+      "Mantenemos oficinas, edificios comerciales y espacios de trabajo con una apariencia impecable y profesional, en un horario que se ajusta a su operación y no interrumpe a su equipo.",
     card1t: "Oficinas y espacios de trabajo",
     card1b:
       "Recepción, áreas de trabajo y salas de juntas con un estándar profesional coherente que notan su equipo y sus visitas.",
@@ -64,7 +64,7 @@ export const es: Messages = {
       "Pasillos de mucho tránsito, vestíbulos y espacios compartidos impecables, seguros y bien cuidados.",
     card3t: "Limpieza de conserjería periódica",
     card3b:
-      "Servicio planificado en el calendario que usted necesita — diario, semanal o a medida — para que su instalación nunca se quede atrás.",
+      "Servicio planificado en el calendario que usted necesita, diario, semanal o a medida, para que su instalación nunca se quede atrás.",
     realH2: "Trabajo real, en entornos comerciales reales",
     realLead:
       "Pruebas de trabajos reales en instalaciones, no imágenes de banco. Una empresa de limpieza comercial que puede ver antes de llamar.",
@@ -76,7 +76,7 @@ export const es: Messages = {
     credEyebrow: "EXPERIENCIA COMPROBADA",
     credH2: "Respaldada por más de 12 años de limpieza profesional",
     credLead:
-      "La dueña de NatuFresh aporta más de 12 años de experiencia práctica en limpieza — incluyendo trabajo comercial con Prince William Home Improvement y Data Integration, Inc. NatuFresh LLC cuenta con licencia y seguro completos.",
+      "La dueña de NatuFresh aporta más de 12 años de experiencia práctica en limpieza, incluyendo trabajo comercial con Prince William Home Improvement y Data Integration, Inc. NatuFresh LLC cuenta con licencia y seguro completos.",
     credLicensed: "Con licencia y asegurada",
     credTrustedWith: "Experiencia con",
     credPwhiAlt: "Prince William Home Improvement",
@@ -92,8 +92,8 @@ export const es: Messages = {
     why6: "Responsabilidad bajo liderazgo del dueño",
     prevH2: "Servicios de limpieza comercial, adaptados a su edificio",
     prevLead:
-      "Desde el mantenimiento diario de oficinas hasta la limpieza profunda y el apoyo de conserjería programado — mantenemos los espacios B2B consistentes.",
-    prevLink: "Ver todos los servicios de limpieza comercial →",
+      "Desde el mantenimiento diario de oficinas hasta la limpieza profunda y el apoyo de conserjería programado, mantenemos los espacios de negocio a negocio consistentes.",
+    prevLink: "Ver todos los servicios de limpieza comercial",
     p1: "Limpieza de oficinas",
     p2: "Conserjería y limpieza",
     p3: "Limpieza profunda",
@@ -115,18 +115,18 @@ export const es: Messages = {
     only: "SOLO COMERCIAL",
     h1: "Servicios de limpieza comercial",
     lead:
-      "Soluciones de limpieza para oficinas, espacios de trabajo, edificios comerciales e instalaciones compartidas — con {yearsExperience} años de experiencia en campo y liderazgo del dueño.",
+      "Soluciones de limpieza para oficinas, espacios de trabajo, edificios comerciales e instalaciones compartidas, con {yearsExperience} años de experiencia en campo y liderazgo del dueño.",
     quoteLinePrefix: "¿Quiere precios para este servicio? ",
     quoteLineSuffix:
       " y coordinaremos alcance, horario y acceso.",
     quoteLink: "Solicitar cotización de limpieza comercial",
     imgAltHero:
       "Pasillo e instalación comercial tras limpieza profesional",
-    imgAltGalleryA: "Oficina abierta y cubículos — limpieza comercial profesional",
+    imgAltGalleryA: "Oficina abierta y cubículos, limpieza comercial profesional",
     imgAltGalleryB: "Pasillo comercial largo y área común",
     ctaH2: "Obtenga un alcance comercial claro y próximos pasos concretos",
     ctaLead:
-      "Indique el tipo de edificio, metros aproximados y horario preferido — le ayudamos a planificar la cadencia de limpieza adecuada.",
+      "Indique el tipo de edificio, metros aproximados y horario preferido, le ayudamos a planificar la cadencia de limpieza adecuada.",
     ctaBtn: "Solicitar cotización",
   },
   aboutPage: {
@@ -142,20 +142,20 @@ export const es: Messages = {
     presH2: "Presentación profesional",
     presLead:
       "Esta es nuestra marca: presentación cuidada y atención al detalle en cada sitio de trabajo.",
-    logoAlt: "Logotipo NatuFresh — limpieza ecológica para una vida saludable",
+    logoAlt: "Logotipo NatuFresh, limpieza ecológica para una vida saludable",
     licensedBadge: "Con licencia y asegurada",
     credH2: "Experiencia comercial de confianza",
     credBody:
-      "Antes de fundar NatuFresh, {owner} dedicó más de 12 años a brindar limpieza profesional para organizaciones locales establecidas — incluyendo Prince William Home Improvement y Data Integration, Inc. Ese historial comercial es la base sobre la que se construye NatuFresh. NatuFresh LLC cuenta con licencia y seguro completos.",
+      "Antes de fundar NatuFresh, {owner} dedicó más de 12 años a brindar limpieza profesional para organizaciones locales establecidas, incluyendo Prince William Home Improvement y Data Integration, Inc. Ese historial comercial es la base sobre la que se construye NatuFresh. NatuFresh LLC cuenta con licencia y seguro completos.",
     credTrustedWith: "Experiencia con",
     credPwhiAlt: "Prince William Home Improvement",
     credDataAlt: "Data Integration, Inc.",
     sec1t: "Servicio liderado por el dueño",
     sec1b:
-      "Trabaja con un negocio que toma el servicio en serio. Cuando importan las expectativas, la responsabilidad del dueño ayuda a asegurar seguimiento, comunicación clara y un estándar que no se pierde en traspasos — especialmente en entornos comerciales donde la calidad se nota en los detalles.",
+      "Trabaja con un negocio que toma el servicio en serio. Cuando importan las expectativas, la responsabilidad del dueño ayuda a asegurar seguimiento, comunicación clara y un estándar que no se pierde en traspasos, especialmente en entornos comerciales donde la calidad se nota en los detalles.",
     sec2t: "Limpieza ecológica para una vida saludable",
     sec2b:
-      "Abordamos el trabajo comercial con una mentalidad de espacio de trabajo más saludable. Eso significa un enfoque práctico y reflexivo de limpieza ecológica que apoya espacios empresariales presentables y confortables — con énfasis en las áreas de alto contacto y alta visibilidad en oficinas y edificios comerciales.",
+      "Abordamos el trabajo comercial con una mentalidad de espacio de trabajo más saludable. Eso significa un enfoque práctico y reflexivo de limpieza ecológica que apoya espacios empresariales presentables y confortables, con énfasis en las áreas de alto contacto y alta visibilidad en oficinas y edificios comerciales.",
     sec3t: "Construido en confianza, detalle y constancia",
     sec3b:
       "Los clientes comerciales necesitan confiabilidad: horarios constantes, alcance claro y limpieza intencionada cada día. Nos enfocamos en el trabajo que hace que su instalación se sienta cuidada: vestíbulos, circulación, baños y áreas de trabajo que reflejan cómo administra su negocio.",
@@ -220,7 +220,7 @@ export const es: Messages = {
     janitorial: {
       title: "Servicios de conserjería",
       intro:
-        "Apoyo de conserjería continuo adaptado a los horarios del negocio — desde cierres nocturnos hasta servicio fuera de horario — para que su instalación luzca cuidada sin interrumpir operaciones clave.",
+        "Apoyo de conserjería continuo adaptado a los horarios del negocio, desde cierres nocturnos hasta servicio fuera de horario, para que su instalación luzca cuidada sin interrumpir operaciones clave.",
       b0: "Limpieza consciente del flujo y reabastecimiento",
       b1: "Pisos, basura y espacios de cara al público",
       b2: "Listas de verificación y comunicación constantes",
@@ -238,7 +238,7 @@ export const es: Messages = {
     move: {
       title: "Limpieza comercial al mudarse (entrada / salida)",
       intro:
-        "Prepare suites e inmuebles comerciales para la siguiente fase — transiciones de arriendo o reconfiguración. Nos enfocamos en una entrega impecable para que el espacio esté listo para trabajar.",
+        "Prepare suites e inmuebles comerciales para la siguiente fase, transiciones de arriendo o reconfiguración. Nos enfocamos en una entrega impecable para que el espacio esté listo para trabajar.",
       b0: "Superficies, pisos y paso de áreas comunes",
       b1: "Preparación para ocupación o estándares del arrendador",
       b2: "Calendario alineado con mudanzas y su cronograma",
